@@ -1,0 +1,64 @@
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Image<span id ='gallery'>Gallery</span></label>
+      <ul>
+
+
+      </ul>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}"><span id="username">{{ user.username }} </span>   Logout</a></li>
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'blog:register' %}">Register</a></li>
+        <li><a href="{% url 'blog:about' %}">About</a></li>
+        <li><a href="{% url 'blog:users' %}">Feedback</a></li>
+        {% else %}
+        <li><a href="{% url 'blog:user_login' %}">Login</a></li>
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'blog:register' %}">Register</a></li>
+        <li><a href="{% url 'blog:about' %}">About</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+
+<br>
+<br>
+<br>
+
+
+    <div id="main1">
+
+
+        <section class="about">
+          <div class="main">
+            <img src="{% static 'images/about.jpg' %}" alt="">
+            <div class="about-text">
+              <h1>About Me</h1>
+              <h5>Student <span class='learn' >& Learner</span> </h5>
+              <p>I am a student who is enthusiastic about learning new things in the field of Web Development and python coding. My Plan is to work on a project related to Machine Learning and Deep Learning. I am a Photographer by hobby and I prefer capturing Macro and Travel Photographs</p>
+              <button class="GFG"
+        onclick="window.location.href = 'https://wa.me/+919591999217';">
+            Let's Talk
+        </button>
+
+            </div>
+          </div>
+        </section>
+        </div>
+      </body>
+    </html>

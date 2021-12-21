@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Gallery</title>
+    <link rel = "shortcut icon" href = "{% static 'images/home/logo.png' %}"
+        type = "image">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Image<span id ='gallery'>Gallery</span></label>
+      <ul>
+
+
+      </ul>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}"><span id="username">{{ user.username }} </span>   Logout</a></li>
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'blog:register' %}">Register</a></li>
+        <li><a href="{% url 'blog:about' %}">About</a></li>
+        <li><a href="{% url 'blog:users' %}">Feedback</a></li>
+        {% else %}
+        <li><a href="{% url 'blog:user_login' %}">Login</a></li>
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'blog:register' %}">Register</a></li>
+        <li><a href="{% url 'blog:about' %}">About</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <br><br>
+    <br>
+    <br>
+    <br>
+
+    <div class = "exploretxt">
+          <h1>Explore the world arround <span id = 'explore'>you</span>!</h1>
+          <h4>“Photography takes an instant out of time, altering life by holding it still.”</h4>
+
+  </div>
+
+
+
+
+    <section id='back'></section>
+    <div class="back">
+      <img class="iphoneback" src="{% static 'images/home/back.jpg' %}" alt="">
+
+
+    <div class="container">
+       <div class="card">
+          <div class="img">
+             <img src="{% static 'images/home/image41.jpg' %}">
+          </div>
+          <div class="top-text">
+             <div class="name">
+                Earth Day
+             </div>
+             <p>
+                Photos of Nature
+             </p>
+          </div>
+          <div class="bottom-text">
+             <div class="text">
+                The physical world and everything in it (such as plants, animals, mountains, oceans, stars, etc.) that is not made by people.
+             </div>
+             <div class="btn">
+                <a href="https://photos.google.com/share/AF1QipN8Zglb6RwDYNXgwwguoimqCQvDs8kz-a8Y7nprk7IRfo-z-N2vveWZHPeoeTETbg?key=aW1xcXZWSXFNUDE1c3J3VHZ2ZkIzWDU2Nkg2T1NR">View more</a>
+             </div>
+          </div>
+       </div>
+       <div class="card">
+          <div class="img">
+             <img src="{% static 'images/home/phone.jpg' %}">
+          </div>
+          <div class="top-text">
+             <div class="name">
+                Macro
+             </div>
+             <p>
+                20X Zoom
+             </p>
+          </div>
+          <div class="bottom-text">
+             <div class="text">
+                Macro photography is a extreme close-up photography,usually of very small subjects and living organisms like insects, in which the size of the subject in the photograph is greater then life size.
+             </div>
+             <div class="btn">
+                <a href="https://photos.google.com/share/AF1QipOYymJdFE4puE_t34PCDhee8gwf6eH-En-9vjuAWI6uLsUKPkA50aFZZykHMfRBHg?key=YW0zTzZVSHlGUEVaV3c3eFhkbTdEODBJS3ctWGh3">View more</a>
+             </div>
+          </div>
+       </div>
+       <div class="card">
+          <div class="img">
+             <img src="{% static 'images/home/templeFV.jpg' %}">
+          </div>
+          <div class="top-text">
+             <div class="name">
+                Architecture
+             </div>
+             <p>
+                Structural Photography
+             </p>
+          </div>
+          <div class="bottom-text">
+             <div class="text">
+                Architectural photography is the sub genre of the photography discipline where the primary emphasis is made to capturing photographs of buildings and similar architectural structures that are both aesthetically pleasing and accurate in terms of representations of their subjects.
+             </div>
+             <div class="btn">
+                <a href="https://photos.google.com/share/AF1QipPjl60ZUZZWdha0QJLdVSCqsvVrDnd-vZRdL5e6AnS-VfJVGNZDqlJXiYekmSwGGw?key=aGN4ODFXYW9pYWJsSUpBRW1FUHVSU0pyc3I3ZWZ3">View more</a>
+             </div>
+          </div>
+       </div>
+    </div>
+    <br><br><br>
+    <br>
+    <div class="container">
+       <div class="card">
+          <div class="img">
+             <img src="{% static 'images/home/beach.jpg' %}">
+          </div>
+          <div class="top-text">
+             <div class="name">
+                Experimental
+             </div>
+             <p>
+                New Shots
+             </p>
+          </div>
+          <div class="bottom-text">
+             <div class="text">
+               This includes anything from digital editing, altering darkroom developments, playing with camera settings or usage or making Art Collages.
+             </div>
+             <div class="btn">
+                <a href="https://photos.google.com/share/AF1QipPx32DkELxU0Uu_C3kKbXR3slekVmL-aLPbXOxG9cdRTaEjY4B3dHQPzNI2wgk0Iw?key=bTNPMHo5SVRqYjUxbFQ0eDN1VkJ1UWlYV2haTW9R">View more</a>
+             </div>
+          </div>
+       </div>
+       <div class="card">
+          <div class="img">
+             <img src="{% static 'images/home/landscape2.jpg' %}">
+          </div>
+          <div class="top-text">
+             <div class="name">
+                Animals
+             </div>
+             <p>
+                Animals
+             </p>
+          </div>
+          <div class="bottom-text">
+             <div class="text">
+               capturing images of animals for use in commercial and artistic endeavors.
+             </div>
+             <div class="btn">
+                <a href="https://photos.google.com/share/AF1QipN7n7vVUS6L3I3RcxcBtOQd6mopKXCiLvyhvLd43q6WGa88lXNyleCFCW_qDByddg?key=azVPR25nSm5oM0lfYTJtejBRSmtlWDcwR0lNQ2ln">View more</a>
+             </div>
+          </div>
+       </div>
+       <div class="card">
+          <div class="img">
+             <img src="{% static 'images/home/curve.jpg' %}">
+          </div>
+          <div class="top-text">
+             <div class="name">
+                Travel
+             </div>
+             <p>
+              Travel Photography
+             </p>
+          </div>
+          <div class="bottom-text">
+             <div class="text">
+               Travel photography is a genre of photography that may involve the documentation of an area's landscape, people, cultures, customs, and history.
+             </div>
+             <div class="btn">
+                <a href="https://photos.google.com/share/AF1QipMtv1WCDKaPKUJdL6mNw87V77tqyjYjmeXtI7nBi4ajiW7wyQh_kxkOyxGYEmcwXw?key=TzBfSjRnSGFQMnBfSmhpRFhsbENDNmpDYnZlbGFR">View more</a>
+             </div>
+          </div>
+       </div>
+    </div>
+
+
+  </body>
+</html>

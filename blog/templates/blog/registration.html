@@ -1,0 +1,73 @@
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/regi.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Image<span id ='gallery'>Gallery</span></label>
+      <ul>
+
+
+      </ul>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}"><span id="username">{{ user.username }} </span>   Logout</a></li>
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'blog:register' %}">Register</a></li>
+        <li><a href="{% url 'blog:about' %}">About</a></li>
+        <li><a href="{% url 'blog:users' %}">Feedback</a></li>
+        {% else %}
+        <li><a href="{% url 'blog:user_login' %}">Login</a></li>
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'blog:register' %}">Register</a></li>
+        <li><a href="{% url 'blog:about' %}">About</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+
+
+
+
+        {% if registered %}
+        <div class="login">
+        <h1>Login</h1>
+          <form method="post" action="{% url 'blog:user_login' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required="required" />
+              <input type="password" name="password" placeholder="Password" required="required" />
+              <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
+          </form>
+        </div>
+
+        {% else %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+
+          <h1>Register Here</h1>
+          <h3>Just fill out the form</h3>
+
+          <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <input class="btn btn-primary btn-block btn-large" type="submit" name="" value="Register">
+        </form>
+        {% endif %}
+        </div>
